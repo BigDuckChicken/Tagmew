@@ -1,0 +1,57 @@
+.dialogs {
+  grid-area: dialogs;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "search" "wrapper" "create";
+  -ms-grid-rows: 0fr 5px 1fr 5px 0fr;
+  grid-template-rows: 0fr 1fr 0fr;
+  row-gap: 5px;
+}
+.dialogs .search {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: search;
+}
+.dialogs .dialogs-wrapper {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: wrapper;
+  position: relative;
+  overflow-y: auto;
+  direction: rtl;
+}
+.dialogs .dialogs-wrapper::-webkit-scrollbar {
+  width: 0;
+}
+.dialogs .dialogs-wrapper .dialogs-wrapper-list {
+  direction: ltr;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.dialogs .dialogs-wrapper .dialogs-wrapper-list .dialog:first-child {
+  margin-top: 0;
+}
+.dialogs .dialogs-create {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: create;
+}
+.dialogs .dialogs-create .text-item {
+  border-radius: 5px;
+  padding: 2px;
+}
+.dialogs .dialogs-create .text-item:first-child:hover {
+  background-color: #fc89ac;
+}
+.dialogs .dialogs-create .text-item:last-child:hover {
+  background-color: #48d1cc;
+}

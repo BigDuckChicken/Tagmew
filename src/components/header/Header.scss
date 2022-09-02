@@ -1,0 +1,39 @@
+.header{
+    grid-area: header;
+    display: grid;
+    grid-template-areas:
+    "logo navbar profile";
+    grid-template-columns: 1fr 3fr 1fr;
+    column-gap: 10px;
+    height: 50px;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ffffff;
+
+    .header-logo{
+        grid-area: logo;
+        display: flex;
+        justify-content: right;
+    }
+    
+    .header-navbar{
+        grid-area: navbar;
+        $margin: 10px;
+        margin-left: $margin;
+        margin-right: $margin;
+    }
+    
+    >a{
+        text-decoration: none;
+        color: #000000;
+        
+        >.text-item{
+            grid-area: profile;
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Logo font';
+    src: local('Logo font'), url(assets/IndieFlower-Regular.woff) format('woff');
+}

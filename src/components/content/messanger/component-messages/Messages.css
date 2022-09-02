@@ -1,0 +1,89 @@
+.messages {
+  grid-area: messages;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "attachments" "wrapper" "input";
+  -ms-grid-rows: 0fr 10px 1fr 10px 0fr;
+  grid-template-rows: 0fr 1fr 0fr;
+  row-gap: 10px;
+}
+.messages .attachments {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: attachments;
+}
+.messages .attachments .attachments-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.messages .attachments .attachments-buttons .text-item {
+  margin-left: 10px;
+}
+.messages .messages-wrapper {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: wrapper;
+  position: relative;
+  overflow-y: auto;
+}
+.messages .messages-wrapper::-webkit-scrollbar {
+  width: 9px;
+}
+.messages .messages-wrapper::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 100px;
+}
+.messages .messages-wrapper::-webkit-scrollbar-thumb {
+  background-color: #48d1cc;
+  border-radius: 100px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+.messages .messages-wrapper .messages-wrapper-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.messages .messages-input {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: input;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.messages .messages-input .messages-input-text {
+  opacity: 0.5;
+}
+.messages .messages-input .messages-input-text:hover {
+  opacity: 1;
+}
+.messages .messages-input .messages-input-buttons {
+  margin-right: 5px;
+}
+.messages .messages-input .messages-input-buttons img {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+}

@@ -1,0 +1,12 @@
+.messanger {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "dialogs messages";
+  -ms-grid-columns: 1fr 10px 3fr;
+  grid-template-columns: 1fr 3fr;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  font-family: "Open Sans", sans-serif;
+}

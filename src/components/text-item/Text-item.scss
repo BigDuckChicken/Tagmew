@@ -1,0 +1,10 @@
+.text-item{
+    display: flex;
+    align-items: center;
+    .text-item-img{
+        $size: 20px;
+        width: $size;
+        height: $size;
+        margin-right: 5px;
+    }
+}

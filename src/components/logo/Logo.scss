@@ -1,0 +1,17 @@
+.logo{
+    display: flex;
+    align-items: center;
+    font-family: 'Logo font', cursive;
+    color: #48d1cc;
+    font-size: 25px;
+
+    img{
+        $size:35px;
+        width: $size;
+        height: $size;
+    }
+
+    .logo-u{
+        color:#fc89ac;
+    }
+}

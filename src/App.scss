@@ -1,0 +1,29 @@
+.app{
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "navbar content null"
+    "Null Null Null";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 0fr 1fr 0fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: #f5f5f5;
+    
+    .app-content-wrapper{
+        grid-area: content;
+        //Фиксирую ширину по fr
+        min-width: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        //Фиксирую высоту по fr
+        min-height: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        //----
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}

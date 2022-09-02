@@ -1,0 +1,24 @@
+.navbar{
+    grid-area: navbar;
+    font-family: 'Open Sans', sans-serif;
+
+    .navbar-menu{
+        float: right;
+        margin-bottom: 100px;
+
+        a{
+            text-decoration: none;
+            color: #000000;
+            border-radius: 5px;
+            :hover{
+                border-radius: 5px;
+                background-color: #ffffff;
+            }
+        }
+
+        .text-item{
+            margin-top: 5px;
+            padding: 2px;
+        }
+    }
+}
