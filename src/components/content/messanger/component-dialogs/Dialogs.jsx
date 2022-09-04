@@ -1,4 +1,4 @@
-import TextItem from 'components/text-item/Text-item';
+import TextItem from 'TextItem';
 import React from 'react';
 import './Dialogs.css';
 import profile from 'assets/profile.svg';
@@ -6,7 +6,11 @@ import search from 'assets/profile.svg';
 import group from 'assets/group.svg';
 import Dialog from './dialog/Dialog';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+
+    let dialogsList = props.dialogsData
+        .map(dialog => <Dialog src={dialog.src} name={dialog.name}/>)
+
     return(
         <div className='dialogs'>
             <div className='search'>
@@ -14,21 +18,7 @@ const Dialogs = () => {
             </div>
             <div className='dialogs-wrapper'>
                 <div className='dialogs-wrapper-list'>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
-                    <Dialog src={profile} name='Sasha'/>
+                    {dialogsList}
                 </div>
             </div>
             <div className='dialogs-create'>

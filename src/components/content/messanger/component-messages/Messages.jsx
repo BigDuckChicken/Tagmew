@@ -4,12 +4,22 @@ import messages from 'assets/messages.svg';
 import photos from 'assets/photos.svg';
 import microphone from 'assets/microphone.svg';
 import attach from 'assets/attach.svg';
-import MyMessage from './my-message/My-message';
-import OtherMessage from './other-message/Other-message';
-import MessageDate from './message-date/Message-date';
-import TextItem from 'components/text-item/Text-item';
+import Message from './message/Message';
+import TextItem from 'TextItem';
 
-const Messages = () => {
+const Messages = (props) => {
+
+    let messagesList = props.messagesData
+        .map(message => <Message message={message}/>)
+
+    let messageInputText = React.createRef();
+
+    const OnKeyDown = (e) => {
+        let messageText = messageInputText.current.value;
+        if (e.keyCode === 13 && !(messageText === ''))
+            props.addMessage(messageText)
+    }
+
     return(
         <div className='messages'>
             <div className='attachments'>
@@ -20,64 +30,13 @@ const Messages = () => {
             </div>
             <div className='messages-wrapper'>
                 <div className='messages-wrapper-list'>
-                    <MessageDate date='30.08.2022'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i dobut I need to verify if I do have free time.
-                        Ill  notice you if i dobut I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/><MyMessage date='today' text='Ok, im waiting'/>
-                    <MessageDate date='31.08.2022'/>
-                    <MyMessage date='today' text='Hello! How are you?'/>
-                    <OtherMessage date='today' text='Hello! Im fine, thank you. How are you?'/>
-                    <MyMessage date='today' text='Im fine. Wanna go to conema today?'/>
-                    <OtherMessage date='today' text='Oh, its nice,
-                    but I need to verify if I do have free time.
-                        Ill  notice you if i do'/>
-                    <MyMessage date='today' text='Ok, im waiting'/>
+                    {messagesList}
                 </div>
             </div>
             <div className='messages-input'>
-                <div className='messages-input-text'>Написать</div>
+                <input ref={messageInputText} onKeyDown={OnKeyDown} autoFocus
+                    placeholder='Напишите сообщение...' className='messages-input-text'>
+                </input>
                 <div className='messages-input-buttons'>
                     <img src={microphone}></img>
                     <img src={attach}></img>

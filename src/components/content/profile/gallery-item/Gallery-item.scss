@@ -1,0 +1,18 @@
+.gallery-item{
+    background: #000;
+    color: #fff;
+    margin: 1px;
+    height: 30vh;
+
+    &.square{
+        width: 30%;
+        max-width: 33%;
+        flex-grow: 1;
+    }
+
+    &.horizontal{
+        width: calc(60% + 2px);
+        max-width: calc(66% + 2px);
+        flex-grow: 2;
+    }
+}

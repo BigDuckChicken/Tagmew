@@ -2,8 +2,8 @@ import React from 'react';
 import './CSSreset.css';
 import './App.css';
 
-import Header from 'components/header/Header';
-import Navbar from 'components/navbar/Navbar';
+import Header from 'components/interface/header/Header';
+import Navbar from 'components/interface/navbar/Navbar';
 import Profile from 'components/content/profile/Profile';
 import News from 'components/content/news/News';
 import Messanger from 'components/content/messanger/Messanger';
@@ -13,7 +13,7 @@ import Video from 'components/content/media-video/Video';
 import Music from 'components/content/media-music/Music';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
   return(
     <BrowserRouter>
       <div className='app'>
@@ -21,9 +21,14 @@ const App = () => {
         <Navbar></Navbar>
         <div className='app-content-wrapper'>
           <Routes>
-            <Route path="/profile" element = {<Profile />}/>
+            <Route path="/profile" element =
+              {<Profile  state={props.state.profilePage}/>}/>
+
             <Route path="/news" element = {<News />}/>
-            <Route path="/messanger" element = {<Messanger />}/>
+            <Route path="/messanger/*" element =
+              {<Messanger state={props.state.messangerPage}
+                          addMessage={props.addMessage}/>}/>
+
             <Route path="/friends" element = {<Friends />}/>
             <Route path="/photos" element = {<Photos />}/>
             <Route path="/video" element = {<Video />}/>

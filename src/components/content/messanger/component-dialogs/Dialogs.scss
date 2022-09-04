@@ -8,6 +8,13 @@
         grid-template-rows: 0fr 1fr 0fr;
         row-gap: 5px;
 
+        a{
+            margin-top: 5px;
+            text-decoration: none;
+            color: #000;
+            &:first-child{margin-top: 0}
+        }
+
         .search{
             grid-area: search;
         }
@@ -29,10 +36,6 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-
-                .dialog:first-child{
-                    margin-top: 0;
-                }
             }
         }
 

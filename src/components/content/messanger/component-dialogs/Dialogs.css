@@ -7,6 +7,14 @@
   grid-template-rows: 0fr 1fr 0fr;
   row-gap: 5px;
 }
+.dialogs a {
+  margin-top: 5px;
+  text-decoration: none;
+  color: #000;
+}
+.dialogs a:first-child {
+  margin-top: 0;
+}
 .dialogs .search {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -36,9 +44,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-.dialogs .dialogs-wrapper .dialogs-wrapper-list .dialog:first-child {
-  margin-top: 0;
 }
 .dialogs .dialogs-create {
   -ms-grid-row: 5;
