@@ -12,6 +12,14 @@ const Messages = (props) => {
     let messagesList = props.messagesData
         .map(message => <Message message={message}/>)
 
+    let messageInputText = React.createRef();
+
+    const OnKeyDown = (e) => {
+        let messageText = messageInputText.current.value;
+        if (e.keyCode === 13 && !(messageText === ''))
+            props.addMessage(messageText)
+    }
+
     return(
         <div className='messages'>
             <div className='attachments'>
@@ -26,7 +34,9 @@ const Messages = (props) => {
                 </div>
             </div>
             <div className='messages-input'>
-                <div className='messages-input-text'>Написать</div>
+                <input ref={messageInputText} onKeyDown={OnKeyDown} autoFocus
+                    placeholder='Напишите сообщение...' className='messages-input-text'>
+                </input>
                 <div className='messages-input-buttons'>
                     <img src={microphone}></img>
                     <img src={attach}></img>

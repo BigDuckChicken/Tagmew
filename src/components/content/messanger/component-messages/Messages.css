@@ -60,26 +60,36 @@
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: input;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "text buttons";
+  -ms-grid-columns: 10fr 1fr;
+  grid-template-columns: 10fr 1fr;
   background-color: #f5f5f5;
   border-radius: 10px;
   padding: 5px;
+}
+.messages .messages-input .messages-input-text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: text;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+.messages .messages-input .messages-input-buttons {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: buttons;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.messages .messages-input .messages-input-text {
-  opacity: 0.5;
-}
-.messages .messages-input .messages-input-text:hover {
-  opacity: 1;
-}
-.messages .messages-input .messages-input-buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-right: 5px;
 }
 .messages .messages-input .messages-input-buttons img {
