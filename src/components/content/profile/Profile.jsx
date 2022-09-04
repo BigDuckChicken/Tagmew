@@ -1,26 +1,18 @@
 import React from 'react';
+import GalleryItem from './gallery-item/Gallery-item';
 import './Profile.css';
 
-const Profile = () => {
+const Profile = (props) => {
+
+let galleryItemsList = props.state.galleryItemsData
+    .map(gallery_item => <GalleryItem type={gallery_item.type}/>);
+
     return(
         <div className='profile'>
             <div className='profile-tape'>
                 <div className='gallery'>
                     <div className='gallery-wrapper'>
-                        <div className='gallery-component'>1</div>
-                        <div className='gallery-component'>2</div>
-                        <div className='gallery-component'>3</div>
-                        
-                        <div className='gallery-component'>5</div>
-                        <div className='gallery-component-horizontal'>4</div>
-                        <div className='gallery-component'>6</div>
-                        <div className='gallery-component'>7</div>
-                        <div className='gallery-component'>8</div>
-                        <div className='gallery-component-big'>9</div>
-                        <div className='gallery-component'>10</div>
-                        <div className='gallery-component'>11</div>
-                        <div className='gallery-component'>12</div>
-                        <div className='gallery-component'>13</div>
+                        {galleryItemsList}
                     </div>
                 </div>
             </div>

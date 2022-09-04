@@ -1,0 +1,30 @@
+.message-date {
+  text-align: center;
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+.message .message-content {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border-radius: 10px;
+  padding: 5px;
+}
+.message .message-content.mine {
+  float: right;
+  background-color: #fc89ac;
+}
+.message .message-content.other {
+  float: left;
+  background-color: #48d1cc;
+}
+.message .message-content .message-date {
+  text-align: start;
+}
+.message .message-content .message-text {
+  font-size: 16px;
+}

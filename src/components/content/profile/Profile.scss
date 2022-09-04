@@ -38,30 +38,6 @@
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-around;
-
-                >*{
-                    background: #000;
-                    color: #fff;
-                    margin: 1px;
-                }
-                .gallery-component-big{
-                    width: 60%;
-                    flex-grow: 2;
-                    height: 60vh;
-                }
-
-                .gallery-component-horizontal{
-                    width: 60%;
-                    flex-grow: 2;
-                    height: 30vh;
-                }
-
-                .gallery-component{
-                    width: 30%;
-                    flex-grow: 1;
-                    height: 30vh;
-                }
             }
         }
     }

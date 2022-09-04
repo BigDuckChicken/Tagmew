@@ -5,14 +5,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 5px;
   background-color: #f5f5f5;
   border-radius: 10px;
   padding: 5px;
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
 }
-.dialog:hover {
+.dialog:hover, .dialog.active {
   background-color: #48d1cc;
   -webkit-box-shadow: 0 0 0 2px #48d1cc inset, 0 0 0 4px white inset;
           box-shadow: 0 0 0 2px #48d1cc inset, 0 0 0 4px white inset;
