@@ -14,10 +14,13 @@ const Messages = (props) => {
 
     let messageInputText = React.createRef();
 
-    const OnKeyDown = (e) => {
-        let messageText = messageInputText.current.value;
-        if (e.keyCode === 13 && !(messageText === ''))
-            props.addMessage(messageText)
+    const OnInputKeyDown = (e) => {
+        if (e.keyCode === 13)
+            props.addMessage()
+    }
+
+    const OnInputChange = () => {
+        props.updateNewMessageText(messageInputText.current.value);
     }
 
     return(
@@ -34,7 +37,9 @@ const Messages = (props) => {
                 </div>
             </div>
             <div className='messages-input'>
-                <input ref={messageInputText} onKeyDown={OnKeyDown} autoFocus
+                <input ref={messageInputText}
+                    onChange={OnInputChange} onKeyDown={OnInputKeyDown} autoFocus
+                    value={props.newMessageText}
                     placeholder='Напишите сообщение...' className='messages-input-text'>
                 </input>
                 <div className='messages-input-buttons'>
