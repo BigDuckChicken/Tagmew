@@ -9,6 +9,7 @@ const Messanger = (props) => {
             <Dialogs dialogsData={props.state.dialogsData}></Dialogs>
             <Messages messagesData={props.state.messagesData}
                         newMessageText={props.state.newMessageText}
+                        cursorPosition={props.state.cursorPosition}
                         addMessage={props.addMessage}
                         updateNewMessageText={props.updateNewMessageText}></Messages>
         </div>

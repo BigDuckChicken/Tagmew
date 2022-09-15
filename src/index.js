@@ -3,10 +3,12 @@ import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import store from './redux/state';
+import store from './redux/state.ts';
 
+//  Функция рендеринга
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 const RenderTree = () => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <React.StrictMode>
       <App state={store.getState()} addMessage={store.addMessage.bind(store)} updateNewMessageText={store.updateNewMessageText.bind(store)}/>
@@ -14,11 +16,12 @@ const RenderTree = () => {
   );
 }
 
+//  Первоначальный вызов рендеринга
+
 RenderTree();
+
+//  Передача функции рендеринга файлу state.js
 
 store.subscribe(RenderTree)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

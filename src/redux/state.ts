@@ -1,7 +1,12 @@
 import profile from 'assets/profile.svg';
 
-let store = {
+// Будущий json файл
+
+let store: object = {
     _state: {
+
+        // Страница профиля
+
         profilePage: {
             galleryItemsData: [
                 {id: '1', type: 'square'},
@@ -17,7 +22,12 @@ let store = {
             ],
         },
 
+        // Страница мессенджера
+
         messangerPage: {
+
+            // Список чатов
+
             dialogsData: [
                 {src: profile, name: 'Sasha'},
                 {src: profile, name: 'Sasha'},
@@ -40,6 +50,8 @@ let store = {
                 {src: profile, name: 'Sasha'},
             ],
 
+            // Список сообщение чата
+
             messagesData: [
                 {id: 1, type: 'date', date: '30.08.2022'},
                 {id: 2, type: 'mine', date: 'today', text: 'Hi! How are you?'},
@@ -50,38 +62,48 @@ let store = {
             ],
 
             newMessageText: '',
+            cursorPosition: {
+                selectionStart: 0,
+                selectionEnd: 0,
+            },
         }
     },
 
-    getState() {return this._state},
+    // GET SET _state
 
-    addMessage() {
+    getState(): object {return this._state},
+
+    //-------
+
+    // Callback 'Отправить сообщение'
+
+    addMessage(): void {
         let newMessage = {
             id: this._state.messangerPage.messagesData.length+1,
             type: 'mine',
             date: 'now',
             text: this._state.messangerPage.newMessageText,
         }
-        if (!this._state.messangerPage.newMessageText=='')
+        if (!(this._state.messangerPage.newMessageText===''))
             this._state.messangerPage.messagesData.push(newMessage);
         this._state.messangerPage.newMessageText = '';
         this.RenderTree(this._state);
     },
 
-    updateNewMessageText(newText) {
+    updateNewMessageText(newText: any) {
         this._state.messangerPage.newMessageText = newText;
         this.RenderTree(this._state);
     },
+
+    // Получение функции рендеринга из файла state.js
 
     RenderTree() {
         //Plug
     },
     
-    subscribe(observer) {
+    subscribe(observer: any) {
         this.RenderTree = observer;
     },
 }
-
-window.store = store;
 
 export default store;

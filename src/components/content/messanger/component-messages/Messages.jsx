@@ -7,21 +7,53 @@ import attach from 'assets/attach.svg';
 import Message from './message/Message';
 import TextItem from 'TextItem';
 
+/*
+**  Элемент Поля сообщений
+*/
+
 const Messages = (props) => {
+
+    //  Получение списка сообщений
 
     let messagesList = props.messagesData
         .map(message => <Message message={message}/>)
 
-    let messageInputText = React.createRef();
+    //  Callback 'Отправить сообщение'
 
+    let messageInputText = React.createRef(); // Привязка
+
+    /*
+    **  Нажатие клавиши ENTER 
+    **  вызывает метод из state.js
+    */
     const OnInputKeyDown = (e) => {
-        if (e.keyCode === 13)
+
+        if (e.keyCode === 13){
             props.addMessage()
+        }
     }
+    /*
+    **  Даёт информацию о положении курсора
+    **
+    const OnInputKeyUp = (e) => {
+        let start = e.target.selectionStart;
+        let end = e.target.selectionEnd;
+
+        props.cursorPosition.selectionStart = start;
+        props.cursorPosition.selectionEnd = end;
+    }
+    */
+
+    /*  
+    **  Обновление информации о текущем содержании
+    **  строки input(Напишите сообщение...) в state.js
+    */
 
     const OnInputChange = () => {
         props.updateNewMessageText(messageInputText.current.value);
     }
+
+    //  Разметка компонента
 
     return(
         <div className='messages'>
