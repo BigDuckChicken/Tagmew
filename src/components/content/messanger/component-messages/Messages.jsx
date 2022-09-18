@@ -7,6 +7,8 @@ import attach from 'assets/attach.svg';
 import Message from './message/Message';
 import TextItem from 'TextItem';
 
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from 'redux/state.ts';
+
 /*
 **  Элемент Поля сообщений
 */
@@ -29,7 +31,7 @@ const Messages = (props) => {
     const OnInputKeyDown = (e) => {
 
         if (e.keyCode === 13){
-            props.addMessage()
+            props.dispatch(addMessageActionCreator())
         }
     }
     /*
@@ -50,7 +52,7 @@ const Messages = (props) => {
     */
 
     const OnInputChange = () => {
-        props.updateNewMessageText(messageInputText.current.value);
+        props.dispatch(updateNewMessageTextActionCreator(messageInputText.current.value));
     }
 
     //  Разметка компонента

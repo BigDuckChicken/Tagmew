@@ -1,8 +1,15 @@
 import profile from 'assets/profile.svg';
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+
+interface Action{
+    type: string,
+    newText?: string,
+};
 
 // Будущий json файл
 
-let store: object = {
+let store: any = {
     _state: {
 
         // Страница профиля
@@ -73,7 +80,18 @@ let store: object = {
 
     getState(): object {return this._state},
 
-    //-------
+    //  Dispatch
+
+    dispatch(action: Action) {
+        switch(action.type){
+            case ADD_MESSAGE:
+                this.addMessage()
+            break;
+            case UPDATE_NEW_MESSAGE_TEXT:
+                this.updateNewMessageText(action.newText)
+            break;     
+        }
+    },
 
     // Callback 'Отправить сообщение'
 
@@ -104,6 +122,14 @@ let store: object = {
     subscribe(observer: any) {
         this.RenderTree = observer;
     },
+}
+
+export const addMessageActionCreator = (): Action => {
+    return { type: ADD_MESSAGE }
+}
+
+export const updateNewMessageTextActionCreator = (newText: string): Action => {
+    return { type: UPDATE_NEW_MESSAGE_TEXT, newText: newText}
 }
 
 export default store;

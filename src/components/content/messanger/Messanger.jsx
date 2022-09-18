@@ -10,8 +10,7 @@ const Messanger = (props) => {
             <Messages messagesData={props.state.messagesData}
                         newMessageText={props.state.newMessageText}
                         cursorPosition={props.state.cursorPosition}
-                        addMessage={props.addMessage}
-                        updateNewMessageText={props.updateNewMessageText}></Messages>
+                        dispatch={props.dispatch}></Messages>
         </div>
     );
 }
