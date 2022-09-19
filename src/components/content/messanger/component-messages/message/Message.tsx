@@ -1,7 +1,15 @@
 import React from 'react';
 import './Message.css'
 
-const Message = ({message}) => {
+type Props = {
+    message: {
+        type: string,
+        date: string,
+        text: string,
+    },
+}
+
+const Message = ({message}: Props): any => {
     if (message.type === 'mine')
         return(
             <div className='message'>

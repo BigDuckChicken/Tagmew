@@ -2,10 +2,12 @@ import React from 'react';
 import GalleryItem from './gallery-item/Gallery-item';
 import './Profile.css';
 
-const Profile = (props) => {
+type Item = {type:string}
+
+const Profile = (props: any) => {
 
 let galleryItemsList = props.state.galleryItemsData
-    .map(gallery_item => <GalleryItem type={gallery_item.type}/>);
+    .map((gallery_item: Item) => <GalleryItem type={gallery_item.type}/>);
 
     return(
         <div className='profile'>

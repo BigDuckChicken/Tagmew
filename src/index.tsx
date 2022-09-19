@@ -3,11 +3,11 @@ import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import store from './redux/state.ts';
+import store from './redux/state';
 
 //  Функция рендеринга
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 const RenderTree = () => {
   root.render(
     <React.StrictMode>
@@ -24,4 +24,4 @@ RenderTree();
 
 store.subscribe(RenderTree)
 
-reportWebVitals();
+reportWebVitals(console.log());

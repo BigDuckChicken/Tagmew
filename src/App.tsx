@@ -13,7 +13,12 @@ import Video from 'components/content/media-video/Video';
 import Music from 'components/content/media-music/Music';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const App = (props) => {
+type Props = {
+  state: any,
+  dispatch: void,
+}
+
+const App = (props: Props) => {
   return(
     <BrowserRouter>
       <div className='app'>

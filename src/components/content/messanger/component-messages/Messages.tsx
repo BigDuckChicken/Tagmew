@@ -7,28 +7,28 @@ import attach from 'assets/attach.svg';
 import Message from './message/Message';
 import TextItem from 'TextItem';
 
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from 'redux/state.ts';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from 'redux/state';
 
 /*
 **  Элемент Поля сообщений
 */
 
-const Messages = (props) => {
+const Messages = (props: any) => {
 
     //  Получение списка сообщений
 
     let messagesList = props.messagesData
-        .map(message => <Message message={message}/>)
+        .map((message: any) => <Message message={message}/>)
 
     //  Callback 'Отправить сообщение'
 
-    let messageInputText = React.createRef(); // Привязка
+    let messageInputText: any = React.createRef(); // Привязка
 
     /*
     **  Нажатие клавиши ENTER 
     **  вызывает метод из state.js
     */
-    const OnInputKeyDown = (e) => {
+    const OnInputKeyDown = (e: any) => {
 
         if (e.keyCode === 13){
             props.dispatch(addMessageActionCreator())

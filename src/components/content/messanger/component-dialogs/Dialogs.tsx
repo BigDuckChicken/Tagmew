@@ -6,10 +6,10 @@ import search from 'assets/profile.svg';
 import group from 'assets/group.svg';
 import Dialog from './dialog/Dialog';
 
-const Dialogs = (props) => {
+const Dialogs = (props: any) => {
 
     let dialogsList = props.dialogsData
-        .map(dialog => <Dialog src={dialog.src} name={dialog.name}/>)
+        .map((dialog: any) => <Dialog src={dialog.src} name={dialog.name}/>)
 
     return(
         <div className='dialogs'>

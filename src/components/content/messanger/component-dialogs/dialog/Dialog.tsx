@@ -2,7 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Dialog.css'
 
-const Dialog = ({src, name='name', text='text'}) => {
+type Props = {
+    src: string,
+    name: string,
+    text?: string,
+}
+
+const Dialog = ({src, name='name', text='text'}: Props) => {
     return(
         <NavLink to={'/messanger/dialog_with_' + name}>
         <div className='dialog'>

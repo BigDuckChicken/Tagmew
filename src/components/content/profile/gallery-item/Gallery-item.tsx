@@ -1,7 +1,11 @@
 import React from 'react';
 import './Gallery-item.css'
 
-const GalleryItem = ({type}) => {
+type Props = {
+    type: string,
+}
+
+const GalleryItem = ({type}: Props): any => {
     if (type === 'square')
         return(
             <div className='gallery-item square'>square
